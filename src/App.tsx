@@ -7,7 +7,7 @@ function App() {
     const props = {onClick: () => console.log('Custom!'), height: '100px', label: 'Custom Button'}
     return (
         <div className={'container'}>
-            <div className={'defaultContainer'}>
+            <div>
                 <div>
                     <h2>
                         Default Button with Interface Props
@@ -21,7 +21,7 @@ function App() {
                     <ButtonTypeProps/>
                 </div>
             </div>
-            <div className={'usedContainer'}>
+            <div>
                 <div>
                     <h2>
                         Styled Button with Interface Props
