@@ -1,26 +1,47 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ButtonInterfaceProps from "./components/ButtonInterfaceProps";
+import ButtonTypeProps from "./components/ButtonTypeProps";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const props = {onClick: () => console.log('Custom!'), height: '100px', label: 'Custom Button'}
+    return (
+        <div className={'container'}>
+            <div className={'defaultContainer'}>
+                <div>
+                    <h2>
+                        Default Button with Interface Props
+                    </h2>
+                    <ButtonInterfaceProps/>
+                </div>
+                <div>
+                    <h2>
+                        Default Button with Type Props
+                    </h2>
+                    <ButtonTypeProps/>
+                </div>
+            </div>
+            <div className={'usedContainer'}>
+                <div>
+                    <h2>
+                        Styled Button with Interface Props
+                    </h2>
+                    <ButtonInterfaceProps onClick={() => {
+                        console.log('So custom')
+                    }} height={'100px'} label={'This is a custom button'}/>
+                    <ButtonInterfaceProps {...props}/>
+                </div>
+                <div>
+                    <h2>
+                        Styled Button with Type Props
+                    </h2>
+                    <ButtonTypeProps onClick={() => {
+                        console.log('So custom')
+                    }} width={'300px'} label={'This one is also custom, but with types!'}/>
+                </div>
+            </div>
+        </div>
+    );
 }
 
 export default App;
